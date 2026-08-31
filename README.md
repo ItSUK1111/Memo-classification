@@ -1,18 +1,36 @@
-# Vue 3 + Vite
+# Note Sorter - AIによる自動分類メモ＆タスク管理アプリ
 
-## AI分類の設定
+## 概要 (Overview)
+「思いつきを、ちょうどいい場所へ。」をコンセプトにした、AI駆動型のタスク・メモ管理アプリケーションです。
+頭に浮かんだ雑多な文章をまとめて入力するだけで、生成AI（Gemini API）が内容を解釈し、「実行すべきタスク」と「記録すべきメモ」に自動で分割・分類します。
 
-開発サーバー起動前に、OpenAI互換APIのキーを環境変数へ設定してください。APIキーはブラウザへ渡さず、ViteのサーバーからAI APIを呼び出します。
+## 初期仕様 (Initial Features)
+* **AI自動分類:** ユーザーの入力テキストをAIが解析し、タスク（☑️）とメモ（📝）に自動判定。
+* **カテゴリ振り分け:** 「仕事」「家事」「買い物」など、文脈に応じたカテゴリへ自動で割り当て。
+* **日付ベースのグルーピング:** 入力した日付ごとにタイムライン形式で表示。
 
-PowerShell:
+## 継続的な改善と追加仕様 (Iterative Improvements)
+開発を進める中で、実際のユーザビリティ（使い勝手）を向上させるために以下の機能改修を行いました。
 
-```powershell
-$env:OPENAI_API_KEY = "your-api-key"
-npm run dev
-```
+### 1. AI解析精度の向上（プロンプトエンジニアリング）
+* **複合文の分離:** 「明日会議だから資料を作る」といった入力に対し、AIが「資料を作る（タスク）」と「明日の会議（メモ）」の2つに分解して抽出するようプロンプトを調整。
+* **相対日時の解決:** AIへのシステムプロンプトに現在時刻を動的に注入し、「明日」「来週」といった相対的な時間表現を正確に解釈できるように改善。
 
-任意で `OPENAI_MODEL`（既定値: `gpt-4o-mini`）と `OPENAI_API_URL`（既定値: OpenAI Chat Completions）も変更できます。キー未設定またはAPI障害時は、従来のキーワード分類へ自動的に切り替わります。
+### 2. 直感的なUI/UX（ドラッグ＆ドロップ）
+* **カテゴリ間の移動と並び替え:** HTML5のDrag & Drop APIを使用し、分類されたアイテムを自由に別カテゴリへ移動・並び替え可能に。
+* **空枠の保持機能:** カテゴリ内のアイテムが0件になってもドロップゾーン（空枠）を維持し、ユーザーの空間的な配置認識を阻害しない設計に変更。
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 3. 情報の関連付け（親子ネスト機能）
+* **タスクへのメモ紐づけ:** 「メモ」を「タスク」の上にドラッグ＆ドロップすることで、タスクの配下に子要素として格納（ネスト）される機能を実装。
+* **タグの自動同期:** 紐づけ時、親タスクが持つコンテキスト（タグ）を子メモへ自動的に伝播・同期させる仕様を追加。解除時には元の状態へ復元。
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+### 4. 視認性とアクセシビリティ
+* **ピン留めとジャンプアニメーション:** 重要なアイテムを画面上部に固定（最大10件）。クリックすると元のアイテム位置へスクロールし、ハイライト点滅（CSS Keyframes）で視線を誘導。
+* **一括手動タグ付け:** 入力時に特定のコンテキスト（例: `#就活`）を付与し、グルーピングしやすくする機能。
+* **アコーディオンUI:** 画面領域を占有していたAIカテゴリガイドを開閉式に変更し、画面を広く使えるように配慮。
+* **フォールバック処理:** APIキー未設定時やAIエラー時には、正規表現と辞書ベースによるローカル分類へ自動で切り替わる堅牢なエラーハンドリング。
+
+## 技術スタック (Tech Stack)
+* **Frontend:** Vue 3 (Composition API), Vite, HTML5 Drag and Drop API
+* **AI Integration:** Google Generative AI SDK (Gemini 1.5 Flash)
+* **Styling:** CSS3 (Flexbox/Grid, Animations), Google Fonts
