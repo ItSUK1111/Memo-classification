@@ -32,8 +32,8 @@ AI駆動型のタスク・メモ管理アプリケーションです。
 * **アコーディオンUI:** 画面領域を占有していたAIカテゴリガイドを開閉式に変更し、画面を広く使えるように配慮。
 * **フォールバック処理:** APIキー未設定時やAIエラー時には、正規表現と辞書ベースによるローカル分類へ自動で切り替わる堅牢なエラーハンドリング。
 
-## 技術スタック (Tech Stack)
-* **Frontend:** Vue 3 (Composition API), Vite, HTML5 Drag and Drop API
-* **AI Integration:** Google Generative AI SDK (Gemini 3.6 Flash)
-* **Styling:** CSS3 (Flexbox/Grid, Animations), Google Fonts
-* **Infrastructure / Hosting:** Vercel, GitHub
+## 使用技術 (Tech Stack)
+* **フロントエンド:** Vue 3 (Composition API), Vite, HTML5 Drag and Drop API
+* **生成AI（AI連携）:** Google Generative AI SDK (Gemini 3.6 Flash)
+* **スタイリング:** CSS3 (Flexbox/Grid, Animations), Google Fonts
+* **インフラ・公開環境:** Vercel, GitHub
