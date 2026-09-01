@@ -304,7 +304,7 @@ const groupedNotes = computed(() => {
     <header class="page-header">
       <p class="eyebrow">PRISM NOTE / 01</p>
       <h1>思いつきを、<em>ちょうどいい場所</em>へ。</h1>
-      <p class="lead">思いついたことをまとめて入力すると、AIがタスクとメモに分けて分類します。</p>
+      <p class="lead">文章をまとめて入力すると、AIがタスクとメモに分けて分類します。</p>
     </header>
 
     <section class="composer" aria-labelledby="composer-title">
