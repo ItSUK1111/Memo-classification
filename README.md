@@ -34,5 +34,6 @@
 
 ## 技術スタック (Tech Stack)
 * **Frontend:** Vue 3 (Composition API), Vite, HTML5 Drag and Drop API
-* **AI Integration:** Google Generative AI SDK (Gemini 1.5 Flash)
+* **AI Integration:** Google Generative AI SDK (Gemini 3.6 Flash)
 * **Styling:** CSS3 (Flexbox/Grid, Animations), Google Fonts
+* **Infrastructure / Hosting:** Vercel, GitHub
