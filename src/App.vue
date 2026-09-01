@@ -302,7 +302,7 @@ const groupedNotes = computed(() => {
 <template>
   <main class="app-shell">
     <header class="page-header">
-      <p class="eyebrow">NOTE SORTER / 01</p>
+      <p class="eyebrow">PRISM NOTE / 01</p>
       <h1>思いつきを、<em>ちょうどいい場所</em>へ。</h1>
       <p class="lead">文章をまとめて入力すると、AIが意味のまとまりごとに分けて分類します。</p>
     </header>
