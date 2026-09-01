@@ -304,13 +304,13 @@ const groupedNotes = computed(() => {
     <header class="page-header">
       <p class="eyebrow">PRISM NOTE / 01</p>
       <h1>思いつきを、<em>ちょうどいい場所</em>へ。</h1>
-      <p class="lead">文章をまとめて入力すると、AIが意味のまとまりごとに分けて分類します。</p>
+      <p class="lead">文章をまとめて入力すると、AIがメモとタスクに分けて分類します。</p>
     </header>
 
     <section class="composer" aria-labelledby="composer-title">
       <div class="section-label">
         <span class="number">01</span>
-        <h2 id="composer-title">メモを入力</h2>
+        <h2 id="composer-title">思い付きを入力</h2>
         <span class="hint">AIが内容を抽出して整理</span>
       </div>
       <textarea v-model="inputText" placeholder="例：来週の会議資料を作る&#10;牛乳を買う&#10;新しいサービスのアイデア" @keydown.ctrl.enter="addNotes" @keydown.meta.enter="addNotes"></textarea>
@@ -348,7 +348,7 @@ const groupedNotes = computed(() => {
     <section class="results" aria-labelledby="results-title">
       <div class="section-label">
         <span class="number">03</span>
-        <h2 id="results-title">分類されたメモ</h2>
+        <h2 id="results-title">分類されたタスク/メモ</h2>
         <span class="count">{{ notes.length }}件</span>
       </div>
       <div v-if="!notes.length" class="empty-state">ここに分類結果が表示されます。</div>
