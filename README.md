@@ -36,7 +36,6 @@ AI駆動型のタスク・メモ管理アプリケーションです。
 * **フォールバック処理:** APIキー未設定時やAIエラー時には、正規表現と辞書ベースによるローカル分類へ自動で切り替わるエラーハンドリング。
 
 ## 使用技術 (Tech Stack)
-* **フロントエンド:** Vue 3 (Composition API), Vite, HTML5 Drag and Drop API
+* **フロントエンド:** Vue 3, Vite, HTML5, css3
 * **生成AI（AI連携）:** Google Generative AI SDK (Gemini 3.6 Flash)
-* **スタイリング:** CSS3 (Flexbox/Grid, Animations), Google Fonts
-* **インフラ・公開環境:** Vercel, GitHub
+* **公開環境:** Vercel, GitHub
